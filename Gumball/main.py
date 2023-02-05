@@ -38,26 +38,30 @@ def main():
         elif (coinString == "Nickel"):                      # nickel = 5
             print("Total coin value: ", list(coins.values())[2])
             total += 5
-            print("Total: ", total)                       #Update total
-                      
+            print("Change inserted: ", total)                       #Update total
+        else:
+            print("Invalid coin, please insert a valid coin (Quarter/Dime/Nickel) or Dispence")   #Invalid coin              
         coinString = input("Insert a coin (Quarter/Dime/Nickel) OR Dispence: ")         #loop until user enters Dispence
     
     
     while (total > 0):        #balance is not zero
         n = int(input("Enter 1 for RED Gumball\nEnter 2 for YELLOW Gumball\nEnter 3 To Return Change\nEnter:"))     #Display Levers
         if (n == 1):                                   #RED
-            if(total>5):                        #Check if balance is greater than 5 cents
+            if(total>=5):                        #Check if balance is greater than 5 cents
                 total-=5                        #Yes, then deduct 5 cents
                 print("\nDispenced Red Gumball\n")    #Dispence Red Gumball#
             else:                                     #No, then print Not enough balance
-                print("Not enough balance")
-                break    
+                print("Not enough balance, need 5 cents")
+                print("\nChange Returned: ", total)  #Return balance
+                    
         elif (n == 2):                               #yellow gumball is 10 cents or dime
-            if(total>10):                      #Check if balance is greater than 10 cents
+            if(total>=10):                      #Check if balance is greater than 10 cents
                 total-=10
                 print("\nDispenced Yellow Gumball\n")
+                break
             else:
-                print("Not enough balance")
+                print("Not enough balance, need 10 cents")
+                print("\nChange Returned: ", total)  #Return balance
                 break
         elif(n==3):                                 #Return Change
             print("\nChange Returned: ", total)  #Return balance
